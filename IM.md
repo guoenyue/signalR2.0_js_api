@@ -59,11 +59,36 @@
         */
         onReceivePrivateMessage(fromUserId,fromUserName,message);
     ```
+    6. 同一账号被异地登录 
+    ```javascript
+        /*
+            @platform:client
+            @params:time(登录时间)[,addr(登录地点)]
+            @name:onLandfall
+        */
+        onLandfall(time[,addr])
+    ```
 
 在整个的聊天系统中，采用本地持久化存储用户的系统配置操作，如颜色主题配置（需求暂无），在线默认状态配置（暂无），回复快捷键配置，默认回复文字配置...等等个性化配置，需要保存至本地。
 
+- 聊天系统，前段需要对读进来的文字进行转义，以便读取到其中的emoji/图片消息,敏感词维护库及敏感词替换，文本框的回复字数限制，
 
+- 准备的工具函数：
+```javascript
+    /*
+    @params:str '[qq_imgName]/[em_imgName]/[other_imgName]'
+    */
+    function replace_em(str){
+        str = str.replace(/\</g,'&lt;');
+        str = str.replace(/\>/g,'&gt;');
+        str = str.replace(/\n/g,'<br/>');
+        str = str.replace(/\[qq_([0-9]*)\]/g,"<img src='./face/emoji1/$1.gif' />");
+        str = str.replace(/\[em_([0-9]*)\]/g,"<img src='./face/emoji2/$1.png'  />");
+        str = str.replace(/\[other_([0-9]*)\]/g,"<img src='./face/emoji3/$1.png' />");
+        return str;
+    }
 
+```
 
 ```javascript
 class User{

@@ -6,8 +6,8 @@
     
 注：以上资源均可在assets文件夹找到。
 有关signalR的文档资料：
-    微软官方：https://docs.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client#clientsetup
-    个人博客：https://www.cnblogs.com/shenba/p/5416328.html
+    [微软官方](https://docs.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client#clientsetup)
+    [个人博客](https://www.cnblogs.com/shenba/p/5416328.html)
 
 ```javascript
     /*
